@@ -168,4 +168,13 @@
   <ItemGroup>
     <BundleResource Include="Resources\ProfilePic%403x.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\reload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\search.png" />
+  </ItemGroup>
 </Project>
