@@ -4,6 +4,7 @@ using Xamarin.Forms.Xaml;
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace Store.UIForms
 {
+    using ViewModels;
     using Views;
 
     public partial class App : Application
@@ -12,6 +13,7 @@ namespace Store.UIForms
         {
             InitializeComponent();
 
+            MainViewModel.GetInstance().Login = new LoginViewModel();
             MainPage = new NavigationPage(new LoginPage());
         }
 
