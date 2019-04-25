@@ -75,10 +75,13 @@
         {
             this.IsRefreshing = true;
 
+            var url = Application.Current.Resources["UrlAPI"].ToString();
             var response = await this.apiService.GetListAsync<Product>(
-                "https://storerafa.azurewebsites.net",
+                url,
                 "/api",
-                "/products");
+                "/Products",
+                "bearer",
+                MainViewModel.GetInstance().Token.Token);
 
             this.IsRefreshing = false;
 

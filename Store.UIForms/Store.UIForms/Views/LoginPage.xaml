@@ -14,7 +14,10 @@
                 <Label Text="Password"></Label>
                 <Entry IsPassword="True" Placeholder="Enter your password..."
                        Text="{Binding Password}"/>
-                <Button Command="{Binding LoginCommand}" Text="Login"/>
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}">
+                </ActivityIndicator>
+                <Button Command="{Binding LoginCommand}" IsEnabled="{Binding IsEnabled}" Text="Login"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
