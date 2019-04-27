@@ -151,7 +151,7 @@ namespace Store.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,ImageFile,LastPurchase,LastSale,IsAvailable,Stock")] ProductViewModel view)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,ImageFile,ImageUrl,LastPurchase,LastSale,IsAvailable,Stock")] ProductViewModel view)
         {
            
             if (ModelState.IsValid)
