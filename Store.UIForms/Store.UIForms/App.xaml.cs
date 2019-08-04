@@ -9,6 +9,7 @@ namespace Store.UIForms
 
     public partial class App : Application
     {
+
         public App()
         {
             InitializeComponent();

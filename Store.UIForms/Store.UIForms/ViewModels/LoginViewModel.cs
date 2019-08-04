@@ -4,7 +4,6 @@
     using Store.Common.Models;
     using Store.Common.Services;
     using Store.UIForms.Views;
-    using System;
     using System.ComponentModel;
     using System.Windows.Input;
     using Xamarin.Forms;
@@ -95,6 +94,18 @@
                 Password = this.Password,
                 Username = this.Email
             };
+
+            var connection = await this.apiService.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    connection.Message,
+                    "Accept");
+                return;
+            }
 
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var response = await this.apiService.GetTokenAsync(

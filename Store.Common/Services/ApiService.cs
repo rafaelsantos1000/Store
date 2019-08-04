@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Plugin.Connectivity;
 using Store.Common.Models;
 using System;
 using System.Collections.Generic;
@@ -141,6 +142,36 @@ namespace Store.Common.Services
                     Message = ex.Message
                 };
             }
+        }
+
+        public async Task<Response> CheckConnection()
+        {
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Turn on you Internet Connection.",
+                };
+            }
+
+            var isReachable = await CrossConnectivity.Current.IsRemoteReachable(
+                "google.com");
+
+            if (!isReachable)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = "Check your Internet connection.",
+                };
+            }
+
+            return new Response
+            {
+                IsSuccess = true,
+                Message = "Ok"
+            };
         }
     }
 }
